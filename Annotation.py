@@ -59,10 +59,10 @@ client = OpenAI(
 )
 
 i = 1
-CHAR_LIMIT = 32000  # Approx. 8000 tokens
+CHAR_min = 32000  # Approx. 8000 tokens
 
 for story in df['story_only'].iloc[22:]:
-    if len(story) > CHAR_LIMIT:
+    if len(story) <= CHAR_min:
         print(f"Skipping story {i}: too long ({len(story)} chars)")
         i += 1
         continue
